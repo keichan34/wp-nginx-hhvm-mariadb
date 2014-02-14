@@ -1,0 +1,43 @@
+---
+  - hosts: all
+
+    tasks:
+      - name: Make sure theme directory exists
+        file: path=/var/www/wp-content/themes/{{ wordpress.theme_name }} state=directory owner=www-data group=www-data
+
+      - name: Make sure the plugins directory exists
+        file: path=/var/www/wp-content/plugins state=directory owner=www-data group=www-data
+
+      - name: Make sure the wp-content directory is owned by the correct group
+        file: path=/var/www/wp-content state=directory owner=www-data group=www-data recurse=yes
+
+  - hosts: all
+
+    sudo_user: www-data
+
+    tasks:
+      - name: Prepare the wordpress database
+        command: mysql --user=root --password="{{ mysql_root_password }}" --execute="CREATE DATABASE IF NOT EXISTS wordpress"
+
+      - name: Check if WordPress is installed or not
+        command: chdir=/var/www wp core is-installed
+        register: result
+        ignore_errors: true
+
+      - name: Download WordPress
+        command: chdir=/var/www wp core download
+        when: result|failed
+        ignore_errors: true
+
+      - name: Configure WordPress
+        command: chdir=/var/www wp core config --dbname=wordpress --dbuser=root --dbpass="{{ mysql_root_password }}"
+        when: result|failed
+        ignore_errors: true
+
+      - name: Install WordPress
+        command: chdir=/var/www wp core install --url="{{ wordpress.url }}" --title="{{ wordpress.title }}" --admin_user="{{ wordpress.admin_user }}" --admin_password="{{ wordpress.admin_password }}" --admin_email="{{ wordpress.admin_password }}"
+        when: result|failed
+
+      - name: Set Permastructs
+        command: chdir=/var/www wp rewrite structure /%year%/%monthnum%/%day%/%postname%/
+        when: result|failed

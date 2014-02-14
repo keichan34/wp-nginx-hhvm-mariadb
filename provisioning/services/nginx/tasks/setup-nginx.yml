@@ -1,0 +1,11 @@
+---
+  - name: install nginx
+    action: apt name=nginx
+
+  - name: Ensure the web directory exists
+    file: path=/var/www owner=www-data group=www-data state=directory
+
+  - name: write nginx.conf
+    action: template src=templates/nginx.conf.j2 dest=/etc/nginx/nginx.conf
+    notify:
+      - restart nginx

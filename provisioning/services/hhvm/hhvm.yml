@@ -1,0 +1,21 @@
+---
+  - hosts: all
+
+    handlers:
+      - name: Restart HHVM
+        action: service name=hhvm pattern=/etc/init.d/hhvm state=restarted enabled=yes
+
+    tasks:
+      - name: Add HHVM key
+        apt_key: url=http://dl.hhvm.com/conf/hhvm.gpg.key
+
+      - name: Add HHVM repository
+        apt_repository: repo='deb http://dl.hhvm.com/ubuntu precise main'
+
+      - name: Install HHVM
+        apt: pkg=hhvm state=latest update_cache=yes
+
+      - name: write server.hdf
+        action: template src=templates/server.hdf.j2 dest=/etc/hhvm/server.hdf
+        notify:
+          - Restart HHVM

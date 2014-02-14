@@ -1,0 +1,24 @@
+---
+  - hosts: all
+
+    tasks:
+      - name: Install PHP CLI
+        apt: pkg=php5-cli state=latest
+
+      - name: Install PHP MySQL
+        apt: pkg=php5-mysql state=latest
+
+      - name: check for wp-cli
+        file: path=/usr/bin/wp state=file
+        register: result
+        ignore_errors: true
+
+      - name: install wp-cli
+        sudo: false
+        when: result|failed
+        shell: wget -P /home/vagrant/ https://raw.github.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+        register: result
+
+      - name: make wp-cli shortcut
+        when: result|changed
+        shell: 'mv /home/vagrant/wp-cli.phar /usr/bin/wp && chmod +x /usr/bin/wp'

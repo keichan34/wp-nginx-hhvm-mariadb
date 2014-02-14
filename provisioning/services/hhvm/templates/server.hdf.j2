@@ -1,0 +1,31 @@
+PidFile = /var/run/hhvm/pid
+
+Log {
+  Level = Warning
+  AlwaysLogUnhandledExceptions = true
+  RuntimeErrorReportingLevel = 8191
+  UseLogFile = true
+  UseSyslog = false
+  File = /var/log/hhvm/error.log
+  Access {
+    * {
+      File = /var/log/hhvm/access.log
+      Format = %h %l %u % t \"%r\" %>s %b
+    }
+  }
+}
+
+Server {
+  Type = fastcgi
+  Port = 9426
+}
+
+Eval {
+  Jit = true
+}
+
+Repo {
+  Central {
+    Path = /var/run/hhvm/hhvm.hhbc.sq3
+  }
+}

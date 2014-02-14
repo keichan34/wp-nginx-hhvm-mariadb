@@ -1,0 +1,25 @@
+# Keita's WordPress Vagrant configuration file.
+
+VagrantWordPress.configure do |config|
+
+  # Configuration variables for the virtual machine.
+  config.vm = {
+    # Change this IP if you have another machine using the same one.
+    ip: '192.168.33.10'
+  }
+
+  config.wordpress = {
+    # URL that you will be using to connect to the blog.
+    url: 'wordpress.dev',
+
+    # Initial blog settings
+    title: "My First Blog",
+    admin_user: 'admin',
+    admin_password: 'aoeuaoeu',
+    admin_email: 'admin@example.com',
+
+    # The directory name of your theme. (I think it may be referred to your "theme slug" sometimes.)
+    theme_name: 'empty-theme'
+  }
+
+end

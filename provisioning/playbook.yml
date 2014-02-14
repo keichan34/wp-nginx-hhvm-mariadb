@@ -1,0 +1,13 @@
+---
+  - hosts: all
+    pre_tasks:
+      - name: Update APT's cache
+        apt: update_cache=yes
+
+  - include: services/nginx/nginx.yml
+  - include: services/mariadb/mariadb.yml
+  - include: services/hhvm/hhvm.yml
+
+  - include: tools/wp_cli/wp_cli.yml
+
+  - include: wordpress/wordpress.yml
