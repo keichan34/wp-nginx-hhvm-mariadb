@@ -7,6 +7,7 @@
   - include: services/nginx/nginx.yml
   - include: services/mariadb/mariadb.yml
   - include: services/hhvm/hhvm.yml
+  - include: services/memcached/memcached.yml
 
   - include: tools/wp_cli/wp_cli.yml
 

@@ -5,8 +5,14 @@
       - name: Install PHP CLI
         apt: pkg=php5-cli state=latest
 
-      - name: Install PHP MySQL
+      - name: Install php5-mysql
         apt: pkg=php5-mysql state=latest
+
+      - name: Install php5-memcache
+        apt: pkg=php5-memcache state=latest
+
+      - name: Install php5-memcached
+        apt: pkg=php5-memcached state=latest
 
       - name: check for wp-cli
         file: path=/usr/bin/wp state=file

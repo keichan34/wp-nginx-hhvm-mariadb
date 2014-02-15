@@ -1,0 +1,3 @@
+---
+  - name: Install the memcached object cache
+    command: chdir=/var/www/wp-content wget "http://plugins.svn.wordpress.org/memcached/trunk/object-cache.php"

@@ -1,0 +1,9 @@
+---
+  - name: Make sure theme directory exists
+    file: path=/var/www/wp-content/themes/{{ wordpress.theme_name }} state=directory owner=www-data group=www-data
+
+  - name: Make sure the plugins directory exists
+    file: path=/var/www/wp-content/plugins state=directory owner=www-data group=www-data
+
+  - name: Make sure the wp-content directory is owned by the correct group
+    file: path=/var/www/wp-content state=directory owner=www-data group=www-data recurse=yes
