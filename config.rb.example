@@ -22,4 +22,10 @@ VagrantWordPress.configure do |config|
     theme_name: 'empty-theme'
   }
 
+  config.load_sql = {
+    enabled: false,
+    file: File.expand_path('../initial_data.sql', __FILE__),
+    orig_domain: 'wordpress-site.com'
+  }
+
 end

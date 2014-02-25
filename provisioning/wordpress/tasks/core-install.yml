@@ -24,3 +24,15 @@
   - name: Set Permastructs
     command: chdir=/var/www wp rewrite structure /%year%/%monthnum%/%day%/%postname%/
     when: result|failed
+
+  - name: Copy inital database
+    copy: src="{{ load_sql.file }}" dest=/tmp/load.sql
+    when: result|failed and load_sql.enabled
+
+  - name: Import inital database
+    shell: mysql --user=root --password="{{ mysql_root_password }}" wordpress < /tmp/load.sql
+    when: result|failed and load_sql.enabled
+
+  - name: Search & replace database
+    command: chdir=/var/www wp search-replace "{{ load_sql.orig_domain }}" "{{ wordpress.url }}"
+    when: result|failed and load_sql.enabled

@@ -5,9 +5,12 @@
 VAGRANTFILE_API_VERSION = "2"
 
 class VagrantWordPress
+  @@load_sql = { enabled: false }
+
   class <<self
     attr_accessor :vm
     attr_accessor :wordpress
+    attr_accessor :load_sql
   end
 
   def self.configure
@@ -61,7 +64,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     ansible.extra_vars = {
       mysql_root_password: 'aoeuaoeu',
-      wordpress: wordpress_config
+      wordpress: wordpress_config,
+      load_sql: VagrantWordPress.load_sql
     }
   end
 end
