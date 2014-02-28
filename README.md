@@ -35,8 +35,14 @@ but you probably want to adjust some variables.
 
 4. Commit your changes and distribute the repository with your co-workers. Please note that this is a template -- if you want to contribute or fix bugs in the template, please make sure that `theme/` and `plugins/` is empty.
 
+## Features
+
+### Import data from a SQL dump file.
+
+Put your SQL dump file in `initial_data.sql`, and set `config.load_sql` values accordingly in `config.rb`. Please note that you probably should *exclude* the `wp_users` and `wp_usermeta` tables from the export.
+
 ## Planned Features
 
 - [ ] More WordPress installation options. Eg: Language, version, etc.
-- [ ] Import data from a WXR (WordPress Export File) or SQL dump.
+- [ ] Import data from a WXR (WordPress Export File).
 - [ ] Auto-deploy script.
