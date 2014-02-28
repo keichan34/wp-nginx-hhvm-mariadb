@@ -44,5 +44,7 @@ Put your SQL dump file in `initial_data.sql`, and set `config.load_sql` values a
 ## Planned Features
 
 - [ ] More WordPress installation options. Eg: Language, version, etc.
+- [ ] Auto-install plugins.
+- [ ] Import `wp-content/uploads` data from ZIP / gzip file.
 - [ ] Import data from a WXR (WordPress Export File).
 - [ ] Auto-deploy script.
