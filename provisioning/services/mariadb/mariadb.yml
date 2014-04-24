@@ -5,9 +5,6 @@
       - include: handlers.yml
 
     tasks:
-      - name: Install python-software-properties
-        apt: pkg=software-properties-common state=latest
-
       - name: Install python-pycurl
         apt: pkg=python-pycurl state=latest
 

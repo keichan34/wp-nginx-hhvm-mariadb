@@ -12,6 +12,9 @@
       - name: Add HHVM repository
         apt_repository: repo='deb http://dl.hhvm.com/ubuntu precise main'
 
+      - name: Add newer Boost repository
+        shell: add-apt-repository -y ppa:mapnik/boost
+
       - name: Install HHVM
         apt: pkg=hhvm state=latest update_cache=yes
 
