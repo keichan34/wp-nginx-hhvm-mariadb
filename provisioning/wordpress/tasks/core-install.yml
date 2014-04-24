@@ -18,7 +18,7 @@
     ignore_errors: true
 
   - name: Install WordPress
-    command: chdir=/var/www wp core install --url="{{ wordpress.url }}" --title="{{ wordpress.title }}" --admin_user="{{ wordpress.admin_user }}" --admin_password="{{ wordpress.admin_password }}" --admin_email="{{ wordpress.admin_password }}"
+    command: chdir=/var/www wp core install --url="{{ wordpress.url }}" --title="{{ wordpress.title }}" --admin_user="{{ wordpress.admin_user }}" --admin_password="{{ wordpress.admin_password }}" --admin_email="{{ wordpress.admin_email }}"
     when: result|failed
 
   - name: Set Permastructs
