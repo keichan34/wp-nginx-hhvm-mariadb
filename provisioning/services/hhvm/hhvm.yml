@@ -18,7 +18,7 @@
       - name: Install HHVM
         apt: pkg=hhvm state=latest update_cache=yes
 
-      - name: write server.hdf
-        action: template src=templates/server.hdf.j2 dest=/etc/hhvm/server.hdf
+      - name: write server.ini
+        action: template src=templates/server.ini.j2 dest=/etc/hhvm/server.ini
         notify:
           - Restart HHVM
