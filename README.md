@@ -8,6 +8,8 @@ The author uses this to manage a development environment for his blog:
 
 ## Getting Started
 
+0. [Ansible](http://docs.ansible.com/intro_installation.html#installing-the-control-machine)
+
 0. [VirtualBox](https://www.virtualbox.org)
 
 0. [Vagrant](http://www.vagrantup.com)
