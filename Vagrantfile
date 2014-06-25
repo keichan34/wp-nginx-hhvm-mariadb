@@ -32,8 +32,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   wordpress_config = VagrantWordPress.wordpress
   vm_config = VagrantWordPress.vm
 
-  config.vm.box = "Ubuntu Precise x86_64"
-  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  config.vm.box = "ubuntu/precise64"
 
   config.vm.hostname = wordpress_config[:url]
   config.vm.network :private_network, ip: vm_config[:ip]
