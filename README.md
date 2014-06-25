@@ -12,7 +12,7 @@ The author uses this to manage a development environment for his blog:
 
 0. [VirtualBox](https://www.virtualbox.org)
 
-0. [Vagrant](http://www.vagrantup.com)
+0. [Vagrant](http://www.vagrantup.com) (version 1.5 or higher is required)
 
 1. The `vagrant-hostsupdater` plugin
     * `$ vagrant plugin install vagrant-hostsupdater`
