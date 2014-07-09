@@ -36,7 +36,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.hostname = wordpress_config[:url]
   config.vm.network :private_network, ip: vm_config[:ip]
-  config.hostsupdater.remove_on_suspend = true
+  if !Vagrant.has_plugin? 'vagrant-hostsupdater'
+    puts 'vagrant-hostsupdater missing, please install the plugin:'
+    puts 'vagrant plugin install vagrant-hostsupdater'
+  else
+    config.hostsupdater.remove_on_suspend = true
+  end
 
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is
