@@ -10,10 +10,7 @@
         apt_key: url=http://dl.hhvm.com/conf/hhvm.gpg.key
 
       - name: Add HHVM repository
-        apt_repository: repo='deb http://dl.hhvm.com/ubuntu precise main'
-
-      - name: Add newer Boost repository
-        shell: add-apt-repository -y ppa:mapnik/boost
+        apt_repository: repo='deb http://dl.hhvm.com/ubuntu trusty main'
 
       - name: Install HHVM
         apt: pkg=hhvm state=latest update_cache=yes
