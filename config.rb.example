@@ -17,9 +17,6 @@ VagrantWordPress.configure do |config|
     admin_user: 'admin',
     admin_password: 'aoeuaoeu',
     admin_email: 'admin@example.com',
-
-    # The directory name of your theme. (I think it may be referred to your "theme slug" sometimes.)
-    theme_name: 'empty-theme'
   }
 
   config.load_sql = {

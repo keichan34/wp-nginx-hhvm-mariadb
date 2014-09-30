@@ -29,13 +29,13 @@ but you probably want to adjust some variables.
 
 1. Fork the repository.
 
-1. Put your theme files in `theme/`.
-	* `theme/` is automatically synced with `/wp-content/themes/{theme_name}`, where `{theme_name}` is the value you configured in `config.rb`
+1. Put your themes files in `themes/`.
+	* `themes/` is automatically synced with `/wp-content/themes/`.
 
 2. Put your plugins in `plugins/`.
 	* `plugins/` is automatically synced with `/wp-content/plugins/`.
 
-4. Commit your changes and distribute the repository with your co-workers. Please note that this is a template -- if you want to contribute or fix bugs in the template, please make sure that `theme/` and `plugins/` is empty.
+4. Commit your changes and distribute the repository with your co-workers. Please note that this is a template -- if you want to contribute or fix bugs in the template, please make sure that `themes/` and `plugins/` is empty.
 
 ## Features
 

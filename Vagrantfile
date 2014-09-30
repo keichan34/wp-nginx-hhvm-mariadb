@@ -47,7 +47,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder "./theme", "/var/www/wp-content/themes/#{wordpress_config[:theme_name]}", owner: 'www-data', group: 'www-data'
+  config.vm.synced_folder "./themes", "/var/www/wp-content/themes", owner: 'www-data', group: 'www-data'
   config.vm.synced_folder "./plugins", "/var/www/wp-content/plugins", owner: 'www-data', group: 'www-data'
 
   # Provider-specific configuration so you can fine-tune various
